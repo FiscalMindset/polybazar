@@ -59,7 +59,7 @@ services:
   # ============================================
   ml-services:
     build:
-      context: ./ml-services
+      context: ./ml-service
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -72,7 +72,7 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - MODEL_PATH=/app/models
     volumes:
-      - ./ml-services:/app
+      - ./ml-service:/app
       - ml-models:/app/models
       - ml-data:/app/data
     networks:
